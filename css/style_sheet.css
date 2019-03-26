@@ -11,7 +11,7 @@ body {
 
 button{
   background-color: rgba(0, 0, 0, 0);
-  color: white;
+  color: red;
   border: 2px solid red;
   padding: 4px 12px;
   text-align: center;
@@ -26,13 +26,19 @@ button{
   z-index: 100;
 }
 
-button:hover {
-  background-color: red;
-  color: black;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
+button:hover:not([disabled]) {
+  color: white;
   transform: translateY(-3px);
 }   
-button:active {
+button:active:not([disabled]) {
   transform: translateY(6px);
+  background-color: red;
+  color: black;
+}
+button:disabled{
+  border-color: black;
+  background-color: rgba(255, 1, 1, 0.2);
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  /* transform: translateY(25px); */
 }
