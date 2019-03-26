@@ -25,16 +25,28 @@ function check(letter, word){
             displayWordArray[i] = letter
         }
     }
+    if (letter in word){
+        
+    }
+    else {
+        score--
+        lives--
+    }
 }
 function generateButtons () {
     for(let i = 0; i < 26; i++){
         btn = document.createElement("button");
         document.body.appendChild(btn);
         btn.innerHTML = String.fromCharCode(65+i);
+        let allButtons = document.querySelectorAll("button")
+        allButtons[i].id = i
         btn.onclick = function (){
+            document.getElementById(i).disabled = true
             check(String.fromCharCode(65+i), chosenWord);
             displayString = displayWordArray.join('');
             document.getElementById('guessString').innerHTML = displayString
+            document.getElementById("lives").innerHTML = "Lives: " + lives;
+document.getElementById("score").innerHTML = "Score: " + score;
 
         };  
     }
