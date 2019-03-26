@@ -1,5 +1,16 @@
-let wordArray = ["TATTOO", "COMMITTEE", "ELECTRICITY"]; // 10 words to be chosen
-let definitions = ["an image", "a group of people", "unlimited power"];
+let wordArray = ["TATTOO", "COMMITTEE", "ELECTRICITY", "COMPUTER", "VACUUM", "AMIR", "MEME", "JAVASCRIPT", "PYTHON", "BCIT"]; // 10 words to be chosen
+let definitions = [
+"mark (a person or a part of the body) with an indelible design by inserting pigment into punctures in the skin", 
+"a group of people appointed for a specific function, typically consisting of members of a larger group", 
+"a form of energy resulting from the existence of charged particles",
+"an electronic device for storing and processing data, typically in binary form, according to instructions given to it in a variable program",
+"an electrical apparatus that by means of suction collects dust and small particles from floors and other surfaces",
+"the best teacher",
+"an element of a culture or system of behavior that may be considered to be passed from one individual to another by nongenetic means, especially imitation",
+"the best programming language",
+"inferior second-rate programming language",
+"the happiest, best school in the lower mainland"
+];
 let chosenWord = null; // Random word from wordArray
 let displayWordArray = []; // Initially a bunch of dashes
 let displayString;
@@ -64,13 +75,8 @@ function generateButtons() {
     restart_btn.onclick = restartGame;
 }
 
-function getLetter(letter) {
-    console.log(letter);
-}
-
 function displayScore() {
     name = prompt('Enter your name:');
-    console.log(name, score);
     document.getElementById('display').innerHTML = name + ', your score is ' + score;
 }
 
