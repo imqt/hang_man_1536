@@ -61,16 +61,28 @@ function getLetter(letter) {
     console.log(letter)
 }
 
+function displayScore(){
+    name = prompt('Enter your name:')
+    console.log(name, score);
+    document.getElementById('display').innerHTML = name + ', your score is ' + score;
+}
 
 function gameStatus(chosenWord) {
-    if (lives == 0){
+    if (lives == 0) {
         document.getElementById("gameover").innerHTML = "You died! Game over."
+        displayScore();
     }
     if (chosenWord == displayString) {
         document.getElementById("gameover").innerHTML = "You win!"
-        let allButtons = document.querySelectorAll("button")
-        allButtons.disabled = true
+        let buttons = document.getElementsByTagName("BUTTON");
+        console.log(buttons)
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = true;
+        }
+        displayScore();
     }
+    
+
     console.log(chosenWord)
     console.log(displayWordArray)
     console.log(displayString)
