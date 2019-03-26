@@ -7,13 +7,16 @@ let lives = 7;
 let score = 0;
 let count = 0;
 
-document.getElementById("word").innerHTML = chosenWord;
+
 document.getElementById("lives").innerHTML = "Lives: " + lives;
 document.getElementById("score").innerHTML = "Score: " + score;
 
 function chooseWord() {
     // chosenWord = wordArray[Math.floor(Math.random() * 10)];
-    chosenWord = wordArray[Math.floor(Math.random() * 3)];
+    random = Math.floor(Math.random() * 3)
+    chosenWord = wordArray[random];
+    definition = definitions[random]
+    document.getElementById("definition").innerHTML = definition
     for (let i = 0; i < chosenWord.length; i++) {
         displayWordArray.push("_ ");
         displayString = displayWordArray.join('')
@@ -45,6 +48,7 @@ function generateButtons() {
         btn.innerHTML = String.fromCharCode(65 + i);
         let allButtons = document.querySelectorAll("button")
         allButtons[i].id = i
+        allButtons[i].className = "letters"
         btn.onclick = function () {
             document.getElementById(i).disabled = true
             check(String.fromCharCode(65 + i), chosenWord);
@@ -55,13 +59,20 @@ function generateButtons() {
             gameStatus(chosenWord);
         };
     }
+    restart_btn = document.createElement("button");
+    document.getElementById("restart").appendChild(restart_btn)
+    restart_btn.innerHTML = "Restart"
+    restart_btn.onclick = restartGame
 }
+
+
+
 
 function getLetter(letter) {
     console.log(letter)
 }
 
-function displayScore(){
+function displayScore() {
     name = prompt('Enter your name:')
     console.log(name, score);
     document.getElementById('display').innerHTML = name + ', your score is ' + score;
@@ -74,17 +85,38 @@ function gameStatus(chosenWord) {
     }
     if (chosenWord == displayString) {
         document.getElementById("gameover").innerHTML = "You win!"
-        let buttons = document.getElementsByTagName("BUTTON");
+        let buttons = document.getElementsByClassName("letters");
         console.log(buttons)
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].disabled = true;
         }
-        displayScore();
+        setTimeout(displayScore, 0)
     }
-    
+
 
     console.log(chosenWord)
     console.log(displayWordArray)
     console.log(displayString)
 
 }
+function restartGame() {
+    lives = 7;
+    score = 0;
+    count = 0;
+    displayWordArray = []; 
+    chooseWord();
+    let buttons = document.getElementsByClassName("letters");
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = false;
+        }
+    document.getElementById("lives").innerHTML = "Lives: " + lives;
+    document.getElementById("score").innerHTML = "Score: " + score;
+    document.getElementById('guessString').innerHTML = displayString;
+
+}
+chooseWord();
+console.log(chosenWord);
+console.log(displayString);
+document.getElementById('guessString').innerHTML = displayString
+
+generateButtons();
