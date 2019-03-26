@@ -22,8 +22,7 @@ document.getElementById("lives").innerHTML = "Lives: " + lives;
 document.getElementById("score").innerHTML = "Score: " + score;
 
 function chooseWord() {
-    // chosenWord = wordArray[Math.floor(Math.random() * 10)];
-    random = Math.floor(Math.random() * 3);
+    random = Math.floor(Math.random() * 10);
     chosenWord = wordArray[random];
     definition = definitions[random];
     document.getElementById("definition").innerHTML = definition;
