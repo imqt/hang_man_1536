@@ -1,5 +1,5 @@
-let wordArray = ["TATTOO", "COMMITTEE", "ELECTRICITY"]; // 10 words to be chosen
-let definitions = ["an image", "a group of people", "unlimited power"];
+let wordArray = ["TATTOO", "COMMITTEE", "ELECTRICITY", "HANGMAN", ]; // 10 words to be chosen
+let definitions = ["an image", "a group of people", "unlimited power", "title of a game", ];
 let chosenWord = null; // Random word from wordArray
 let displayWordArray = []; // Initially a bunch of dashes
 let displayString;
