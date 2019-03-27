@@ -1,3 +1,5 @@
+
+
 let wordArray = ["TATTOO", "COMMITTEE", "ELECTRICITY", "COMPUTER", "VACUUM", "AMIR", "MEME", "JAVASCRIPT", "PYTHON", "BCIT"]; // 10 words to be chosen
 let definitions = [
 "mark (a person or a part of the body) with an indelible design by inserting pigment into punctures in the skin", 
@@ -77,6 +79,7 @@ function generateButtons() {
 function displayScore() {
     name = prompt('Enter your name:');
     document.getElementById('display').innerHTML = name + ', your score is ' + score;
+    writeUserData(name, score)
 }
 
 function gameStatus(chosenWord) {
@@ -111,6 +114,61 @@ function restartGame() {
     document.getElementById('guessString').innerHTML = displayString;
 }
 
+function writeUserData(name, score) {
+    firebase.database().ref('users/').update({
+      name: score
+    });
+  }
+
+  function GetList() {
+    var dbRef = firebase.database().ref("users/")
+    dbRef.once("value", function (snap) {
+        console.log(snap.val());
+        list = snap.val()
+        console.log(list)
+        DisplayList(list)
+    })
+}
+function DisplayList(list) {
+    score = []
+    let first = true;
+    for (x in list) {
+        if (first==true){
+            first == false;
+            score.push(x)
+            continue
+        }
+        for (i in score) {
+            if (list[x]["score"] > list[i]["score"]){
+                endHalfOfScore = score.slice(score.indexOf(i))
+                score = score.slice(0, score.indexOf(i))
+                score.push(x)
+                score.concat(endHalfOfScore)
+            }
+        }
+        if (!(x in list)){score.push(x)}
+    }
+    console.log(score)
+ }
+
+
+// function DisplayList(list) {
+//     let scores = []
+// for (x in list){
+//         scores.push(list[x]["score"])
+//         console.log(list[x]["score"])
+//         high_score = document.createElement("p");
+//         document.getElementById("highscore").appendChild(high_score);
+//         high_score.innerHTML = x +" "+ list[x]["score"]
+//         console.log(x)
+//         console.log(list[x])
+//         console.log(scores)
+// }
+// scores.sort()
+// console.log(scores)
+// }
+
 chooseWord();
 document.getElementById('guessString').innerHTML = displayString
 generateButtons();
+GetList()

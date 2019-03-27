@@ -12,6 +12,21 @@
             font-size: 20px
         }
     </style>
+
+    
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC1iJgM6rmGZi7WNg8jU1N3zzFA23iWGrk",
+    authDomain: "hangman-leaderboard-31fef.firebaseapp.com",
+    databaseURL: "https://hangman-leaderboard-31fef.firebaseio.com",
+    projectId: "hangman-leaderboard-31fef",
+    storageBucket: "",
+    messagingSenderId: "473287303688"
+  };
+  firebase.initializeApp(config);
+</script>
 </head>
 
 <body>
@@ -36,6 +51,8 @@
     <div id='display'></div>
     <div id='restart'></div>
     <script src="js\hangman.js"></script>
+    <div>HIGH SCORES:</div>
+    <div id="highscore"></div>
 
 </body>
 
