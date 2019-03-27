@@ -44,9 +44,6 @@ button:disabled{
   transition-duration: 1s;
   /* transform: translateY(25px); */
 }
-#buttons {
-  width: 100px;
-}
 
 #score, #lives, #guess {
   text-align: center;
