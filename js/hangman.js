@@ -129,44 +129,44 @@ function writeUserData(name, score) {
         DisplayList(list)
     })
 }
-function DisplayList(list) {
-    score = []
-    let first = true;
-    for (x in list) {
-        if (first==true){
-            first == false;
-            score.push(x)
-            continue
-        }
-        for (i in score) {
-            if (list[x]["score"] > list[i]["score"]){
-                endHalfOfScore = score.slice(score.indexOf(i))
-                score = score.slice(0, score.indexOf(i))
-                score.push(x)
-                score.concat(endHalfOfScore)
-            }
-        }
-        if (!(x in list)){score.push(x)}
-    }
-    console.log(score)
- }
-
-
 // function DisplayList(list) {
-//     let scores = []
-// for (x in list){
-//         scores.push(list[x]["score"])
-//         console.log(list[x]["score"])
-//         high_score = document.createElement("p");
-//         document.getElementById("highscore").appendChild(high_score);
-//         high_score.innerHTML = x +" "+ list[x]["score"]
-//         console.log(x)
-//         console.log(list[x])
-//         console.log(scores)
-// }
-// scores.sort()
-// console.log(scores)
-// }
+//     score = []
+//     let first = true;
+//     for (x in list) {
+//         if (first==true){
+//             first == false;
+//             score.push(x)
+//             continue
+//         }
+//         for (i in score) {
+//             if (list[x]["score"] > list[i]["score"]){
+//                 endHalfOfScore = score.slice(score.indexOf(i))
+//                 score = score.slice(0, score.indexOf(i))
+//                 score.push(x)
+//                 score.concat(endHalfOfScore)
+//             }
+//         }
+//         if (!(x in list)){score.push(x)}
+//     }
+//     console.log(score)
+//  }
+
+
+function DisplayList(list) {
+    let scores = []
+for (x in list){
+        scores.push(list[x]["score"])
+        console.log(list[x]["score"])
+        high_score = document.createElement("p");
+        document.getElementById("highscore").appendChild(high_score);
+        high_score.innerHTML = x +" "+ list[x]["score"]
+        console.log(x)
+        console.log(list[x])
+        console.log(scores)
+}
+scores.sort()
+console.log(scores)
+}
 
 chooseWord();
 document.getElementById('guessString').innerHTML = displayString
