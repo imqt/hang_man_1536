@@ -158,6 +158,8 @@ function displayLeaderBoard(playerList){
 
 function hideScore(){
     document.getElementById('leaderboard').remove();
+    firebase.database().ref("users/").off()
+    playerList = []
 }
 
 chooseWord();
