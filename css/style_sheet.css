@@ -79,7 +79,7 @@ button:disabled{
 #copyright p {
 	/*text-align: center;*/
 	font-size: 16px;
-    color: white;
+    color: red;
     margin: 0px;
 }
 #copyright p:hover {
@@ -89,4 +89,8 @@ button:disabled{
 	letter-spacing: 1px;
 }
 
-
+#leaderboard {
+	color: red;
+	position: relative;
+	bottom: -100px;
+}
