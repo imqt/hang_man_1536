@@ -1,8 +1,8 @@
 let wordArray = ["TATTOO", "COMMITTEE", "ELECTRICITY", "COMPUTER", "VACUUM", "AMIR", "MEME", "JAVASCRIPT", "PYTHON", "BCIT"]; // 10 words to be chosen
 let definitions = [
-"mark (a person or a part of the body) with an indelible design by inserting pigment into punctures in the skin", 
+"a form of body modification where a design is made by inserting ink", 
 "a group of people appointed for a specific function, typically consisting of members of a larger group", 
-"a form of energy resulting from the existence of charged particles",
+"electricity, is the set of physical phenomena associated with the presence and motion of electric charge",
 "an electronic device for storing and processing data, typically in binary form, according to instructions given to it in a variable program",
 "an electrical apparatus that by means of suction collects dust and small particles from floors and other surfaces",
 "the best teacher",
