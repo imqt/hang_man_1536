@@ -34,7 +34,7 @@ function chooseWord() {
 }
 
 function check(letter, word) {
-    let count = 0
+    let count = 0;
     for (let i = 0; i < word.length; i++) {
         if (word.charAt(i) == letter) {
             displayWordArray[i] = letter;
@@ -76,7 +76,7 @@ function generateButtons() {
 }
 
 function displayScore() {
-    name = prompt('Enter your name:');
+    let name = prompt('Enter your name:');
     document.getElementById('display').innerHTML = name + ', your score is ' + score;
 }
 
@@ -158,10 +158,10 @@ function displayLeaderBoard(playerList){
 
 function hideScore(){
     document.getElementById('leaderboard').remove();
-    firebase.database().ref("users/").off()
+    firebase.database().ref("users/").off();
     playerList = []
 }
 
 chooseWord();
-document.getElementById('guessString').innerHTML = displayString
+document.getElementById('guessString').innerHTML = displayString;
 generateButtons();
